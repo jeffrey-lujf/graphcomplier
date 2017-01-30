@@ -1,0 +1,20 @@
+origin is (20, 30);
+for t from 0 to 20 step 0.5 draw (t, t);
+for t from 0 to 6.28 step 0.0314 * 3 draw(10 * cos(t), 10 * sin(t));
+for t from 0 to 6.28 step 0.0314 draw(10 / 6.28 * t * cos(5 * t),10 / 6.28 * t * sin(5 * t));
+
+origin is (50, 30);
+rot is 3.14159;
+for t from 0 to 6.28 step 0.0314 * 3 draw(5 * (2 * sin(t)-sin(2 * t)), 5 * (2 * cos(t) - cos(2 * t)));
+
+origin is (80, 40);
+scale is (100, 200);
+for t from 0 to 6.28 step 0.0314 * 3 draw(10 * cos(t), 10 * sin(t));
+
+srcs = [
+        'rot is 1$1;',  # ERROR_WRONG_TOKEN
+        'rot is ((1+ 2 + 3);',  # ERROR_UNMATCHED_BRACKETS
+        'rot is 1 ++ 2;',  # ERROR_WRONG_EXPRESSION
+        'for t is;',  # ERROR_WRONG_SYNTAX
+        'scale is );'
+    ]
